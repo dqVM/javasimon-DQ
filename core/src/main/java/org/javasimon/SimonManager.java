@@ -37,6 +37,7 @@ public final class SimonManager {
 
 	/** Calls {@link #init()}. */
 	static {
+		System.out.printf("init simonManager \n");
 		init();
 	}
 
@@ -115,6 +116,16 @@ public final class SimonManager {
 		return manager.getStopwatch(name);
 	}
 
+	/**
+	 * Return existing Meter or create new if necessary. 
+	 * "Anonymous " meter will be obtained if null name is specified, then...
+	 */
+	 public static Meter getMeter(String name)
+	 {
+	    return manager.getMeter(name);
+	 }
+	
+	
 	/** Enables the Simon Manager. Enabled manager provides real Simons. */
 	public static void enable() {
 		manager.enable();

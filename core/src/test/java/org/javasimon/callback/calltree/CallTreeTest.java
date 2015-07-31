@@ -30,7 +30,7 @@ public class CallTreeTest extends SimonUnitTest {
 	/** Root call tree node. */
 	private CallTreeNode rootTreeNode;
 
-	/** Start a stopwatch and append it call stack. */
+	/** Start a stop watch and append it call stack. */
 	private Split startStopwatch(String name) {
 		Split split = SimonManager.getStopwatch(NAME_PREFIX + name).start();
 		callTree.onStopwatchStart(split);

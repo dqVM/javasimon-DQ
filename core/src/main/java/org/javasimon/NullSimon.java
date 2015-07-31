@@ -409,4 +409,72 @@ final class NullCounter extends NullSimon implements Counter {
 	public CounterSample sampleIncrementNoReset(Object key) {
 		return null;
 	}
+  }
+	final class NullMeter extends NullSimon implements Meter{
+
+		
+		static final NullMeter INSTANCE = new NullMeter();
+		@Override
+		public Meter mark() {
+			// TODO Auto-generated method stub
+			return this;
+		}
+
+		@Override
+		public Meter mark(long paramLong) {
+			// TODO Auto-generated method stub
+			return this;
+		}
+
+		@Override
+		public void start() {
+		}
+
+		@Override
+		public long getCount() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		@Override
+		public double getMeanRate() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		@Override
+		public double getOneMinuteRate() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		@Override
+		public double getPeakRate() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		@Override
+		public MeterSample sample() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public MeterSample sampleIncrement(Object paramObject) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public MeterSample sampleIncrementNoReset(Object paramObject) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public double getInstantRate() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
 }

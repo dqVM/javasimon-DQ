@@ -3,6 +3,8 @@ package org.javasimon.callback;
 import org.javasimon.Counter;
 import org.javasimon.CounterSample;
 import org.javasimon.Manager;
+import org.javasimon.Meter;
+import org.javasimon.MeterSample;
 import org.javasimon.Simon;
 import org.javasimon.SimonPattern;
 import org.javasimon.Split;
@@ -92,6 +94,7 @@ public final class CompositeFilterCallback implements FilterCallback, CompositeC
 
 	@Override
 	public void onStopwatchStop(Split split, StopwatchSample sample) {
+		System.out.println("info: compositte stop");
 		Stopwatch stopwatch = split.getStopwatch();
 		if (stopwatch != null && rulesApplyTo(stopwatch, Event.STOPWATCH_STOP, split)) {
 			callback.onStopwatchStop(split, sample);
@@ -212,4 +215,18 @@ public final class CompositeFilterCallback implements FilterCallback, CompositeC
 		}
 		return rule.checkCondition(simon, params);
 	}
+
+	  public void onMeterIncrease(Meter meter, long inc, MeterSample sample)
+	  {
+	    if (rulesApplyTo(meter, Callback.Event.METER_INCREASE, new Object[] { Long.valueOf(inc) })) {
+	      this.callback.onMeterIncrease(meter, inc, sample);
+	    }
+	  }
+	  
+	  public void onMeterDecrease(Meter meter, long inc, MeterSample sample)
+	  {
+	    if (rulesApplyTo(meter, Callback.Event.METER_DECREASE, new Object[] { Long.valueOf(inc) })) {
+	      this.callback.onMeterIncrease(meter, inc, sample);
+	    }
+	  }
 }

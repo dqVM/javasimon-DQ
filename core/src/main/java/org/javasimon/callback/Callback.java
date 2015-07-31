@@ -3,6 +3,8 @@ package org.javasimon.callback;
 import org.javasimon.Counter;
 import org.javasimon.CounterSample;
 import org.javasimon.Manager;
+import org.javasimon.Meter;
+import org.javasimon.MeterSample;
 import org.javasimon.Simon;
 import org.javasimon.Split;
 import org.javasimon.Stopwatch;
@@ -105,6 +107,20 @@ public interface Callback {
 	 * @param sample counter sampled after the operation
 	 */
 	void onCounterSet(Counter counter, long val, CounterSample sample);
+	
+	
+	
+	
+	/**
+	 * Meter event. Valid for the moment 
+	 * @param paramMeter
+	 * @param paramLong
+	 * @param paramMeterSample
+	 */
+	public abstract void onMeterIncrease(Meter paramMeter, long paramLong, MeterSample paramMeterSample);
+	  
+	
+	public abstract void onMeterDecrease(Meter paramMeter, long paramLong, MeterSample paramMeterSample);
 
 	/**
 	 * Simon created event is called when Simon is successfully created by the Manager.
@@ -173,6 +189,13 @@ public interface Callback {
 
 		/** Counter decreased. */
 		COUNTER_DECREASE("decrease"),
+		
+		
+		/** Meter Increase*/
+		METER_INCREASE("meter-increase"),
+		
+		/**Meter Decrease*/
+		METER_DECREASE("meter-decrease"),
 
 		/** Counter set to arbitrary value. */
 		COUNTER_SET("set"),

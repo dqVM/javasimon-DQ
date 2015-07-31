@@ -55,6 +55,17 @@ public final class DisabledManager implements Manager {
 		return NullCounter.INSTANCE;
 	}
 
+	
+	
+	/**
+	 * Return "Null Meter" that always return empty/null value and cannot 
+	 * 
+	 */
+	@Override
+	public Meter getMeter(String name) {
+		return NullMeter.INSTANCE;
+	}
+	
 	/**
 	 * Returns "Null Stopwatch" that always returns empty/null values and cannot measure anything.
 	 *
@@ -142,4 +153,6 @@ public final class DisabledManager implements Manager {
 	public long millisForNano(long nanos) {
 		return 0;
 	}
+
+
 }

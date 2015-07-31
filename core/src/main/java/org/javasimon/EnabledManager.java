@@ -76,6 +76,13 @@ public final class EnabledManager implements Manager {
 	public Counter getCounter(String name) {
 		return (Counter) getOrCreateSimon(name, CounterImpl.class);
 	}
+	
+	
+	@Override
+	public Meter getMeter(String name) {
+		return (Meter) getOrCreateSimon(name, MeterImpl.class);
+	}
+	
 
 	@Override
 	public Stopwatch getStopwatch(String name) {
@@ -258,4 +265,6 @@ public final class EnabledManager implements Manager {
 			}
 		}
 	}
+
+
 }

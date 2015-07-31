@@ -62,6 +62,14 @@ public interface Manager extends SimonClock {
 	 * @return stopwatch object
 	 */
 	Stopwatch getStopwatch(String name);
+	
+	
+	/**
+	 * Return existing Meter or create new if necessary. 
+	 **/
+	
+	Meter getMeter(String paramString);
+	
 
 	/**
 	 * Returns unmodifiable collection containing names of all existing Simons. Collection is not ordered.
